@@ -9,7 +9,7 @@
 #define SPI_MISO_PIN      RPI_V2_GPIO_P1_21  // MISO pin (unused)
 #define SPI_MOSI_PIN      RPI_V2_GPIO_P1_19  // MOSI pin
 
-#define ST7789_WIDTH       240
+#define ST7789_WIDTH       320
 #define ST7789_HEIGHT      240
 #define ST7789_RESET_PIN   27  // Pin for RESET
 #define ST7789_DC_PIN      24  // Pin for DC
@@ -108,7 +108,9 @@ void display_gif(const char *filename) {
     // Loop through all frames and display them
     for (int i = 0; i < gif_file->ImageCount; i++) {
         GifImageDesc *frame = &gif_file->Image[i];
-        display_gif_frame(frame->RasterBits, frame->Width, frame->Height, gif_file);
+        
+        // Access the frame data (in the `RasterData` field of `ImageDesc`)
+        display_gif_frame(frame->RasterData, frame->Width, frame->Height, gif_file);
 
         // Introduce a delay between frames for animation effect
         usleep(100000);  // Delay for 100ms between frames
