@@ -11,8 +11,8 @@
 
 #define ST7789_WIDTH       240
 #define ST7789_HEIGHT      240
-#define ST7789_RESET_PIN   17  // Pin for RESET
-#define ST7789_DC_PIN      27  // Pin for DC
+#define ST7789_RESET_PIN   27  // Pin for RESET
+#define ST7789_DC_PIN      24  // Pin for DC
 
 // Function to initialize the SPI interface and display
 void init_display() {
