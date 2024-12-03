@@ -123,7 +123,7 @@ void display_gif(const char *filename) {
 int main() {
     init_display();
     st7789_init();
-    display_gif("image.gif");  // Provide the path to your GIF file
+    display_gif("shuppet.gif");  // Provide the path to your GIF file
     bcm2835_close();
     return 0;
 }
